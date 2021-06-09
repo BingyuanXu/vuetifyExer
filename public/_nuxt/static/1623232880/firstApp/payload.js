@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/firstApp", {data:[{}],fetch:{},mutations:void 0});

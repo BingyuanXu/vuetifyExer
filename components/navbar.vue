@@ -6,6 +6,11 @@
         @click.stop="drawer = !drawer"
       ></v-app-bar-nav-icon>
       <v-toolbar-title class="grey--text">
+            <v-btn to="/" depressed plain>
+              <v-icon large right>mdi-face-woman-shimmer-outline</v-icon>
+            </v-btn>
+
+
         <span class="font-weight-light">Gu</span>
         <span>KeXin</span>
       </v-toolbar-title>
@@ -86,57 +91,58 @@
 </template>
 
 <script>
-import changeTheme from './changeTheme.vue'
+import changeTheme from "./changeTheme.vue";
 export default {
   components: { changeTheme },
   //#region
   data() {
     return {
-      selectedItem:null,
+      selectedItem: null,
       menu: [
-        { title: '个人信息' },
-        { title: '设置' },
-        { title: '选择账户' },
-        { title: '退出' },
+        { title: "个人信息" },
+        { title: "设置" },
+        { title: "选择账户" },
+        { title: "退出" }
       ],
       change: [
-        ['暴躁小河豚', 'mdi-google-downasaur'],
-        ['温柔小妹妹', 'mdi-face-woman-shimmer'],
+        ["暴躁小河豚", "mdi-google-downasaur"],
+        ["温柔小妹妹", "mdi-face-woman-shimmer"]
       ],
 
       drawer: false,
       items: [
         {
-          icon: 'mdi-food',
-          title: '吃饭',
-          to: '/firstApp',
+          icon: "mdi-home",
+          title: "主页",
+          to: "/"
+        },
+
+        {
+          icon: "mdi-food",
+          title: "吃饭",
+          to: "/eat"
         },
         {
-          icon: 'mdi-sleep',
-          title: '睡觉',
-          to: '/sleep',
+          icon: "mdi-sleep",
+          title: "睡觉",
+          to: "/sleep"
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: '打豆豆',
-          to: '/beatpea',
-        },
-        {
-          icon: 'mdi-school',
-          title: '学习',
-          to: '/study',
-        },
+          icon: "mdi-school",
+          title: "学习",
+          to: "/study"
+        }
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js',
-    }
+      title: "Vuetify.js"
+    };
   },
   methods: {},
   //#endregion
   abc() {
-    console.log('a')
-  },
-}
+    console.log("a");
+  }
+};
 </script>

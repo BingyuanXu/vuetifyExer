@@ -10,7 +10,7 @@
       outlined
       v-model="snackbar"
     >
-      loading successful!
+      upload successful!
 
       <template v-slot:action="{ attrs }">
         <v-btn color="pink" text v-bind="attrs" @click="snackbar = false">
@@ -65,12 +65,8 @@
                   </v-col>
                   <v-col cols="12" sm="6">
                     <v-menu
-                      nudge-top="250"
-                      top
                       ref="menu"
                       v-model="menu"
-                      :close-on-content-click="false"
-                      :return-value.sync="date"
                       transition="scale-transition"
                       min-width="auto"
                     >
@@ -84,15 +80,7 @@
                           v-on="on"
                         ></v-text-field>
                       </template>
-                      <v-date-picker v-model="date" no-title scrollable>
-                        <v-spacer></v-spacer>
-                        <v-btn
-                          text
-                          color="primary"
-                          @click="$refs.menu.save(date)"
-                        >
-                          OK
-                        </v-btn>
+                      <v-date-picker no-title scrollable v-model="date">
                       </v-date-picker>
                     </v-menu>
                   </v-col>
@@ -109,7 +97,7 @@
               :loading="loading"
               color="blue darken-1"
               text
-              @click="submita"
+              @click="submitData"
             >
               Save
             </v-btn>
@@ -130,29 +118,29 @@ export default {
     mood: null,
     menu: null,
     loading: false,
-    snackbar: false,
+    snackbar: false
   }),
   methods: {
-    submita: async function () {
-      this.loading = true
+    submitData: async function() {
+      this.loading = true;
       const ele = {
         breakfast: this.breakfast,
         lunch: this.lunch,
         dinner: this.dinner,
         mood: this.mood,
-        date: this.date,
-      }
+        date: this.date
+      };
       if (this.$refs.myForm.validate()) {
         this.$fire.firestore
-          .collection('project')
+          .collection("project")
           .add(ele)
           .then(() => {
-            this.loading = false
-            this.snackbar = true
-          })
+            this.loading = false;
+            this.snackbar = true;
+          });
       }
-      this.dialog = false
-    },
-  },
-}
+      this.dialog = false;
+    }
+  }
+};
 </script>
