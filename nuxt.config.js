@@ -36,12 +36,38 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: "AIzaSyCXkRJI77H5g6m1GjGrBIlOINjbRZOOCcs",
+          authDomain: "kexin-f0396.firebaseapp.com",
+          projectId: "kexin-f0396",
+          storageBucket: "kexin-f0396.appspot.com",
+          messagingSenderId: "911857210398",
+          appId: "1:911857210398:web:8591f0e6568aaa1e454a0f",
+          measurementId: "G-PGEN9245ST"
+        },
+        services: {
+          auth: true,
+          firestore: true,
+          functions: true,
+          storage: true,
+          database: true,
+          messaging: true,
+          performance: true,
+          analytics: true,
+          remoteConfig: true
+        }
+      }
+    ]
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -51,7 +77,7 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,
