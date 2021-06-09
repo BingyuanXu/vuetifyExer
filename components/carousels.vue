@@ -38,8 +38,8 @@ export default {
     return {
       slices: [
         { name: "热门产品", color: "primary" },
-        { name: "特殊服务", color: "yellow darken-2" },
-        { name: "福利美图", color: "red" },
+        { name: "特价产品", color: "yellow darken-2" },
+        { name: "popular", color: "red" },
         { name: "联系我们", color: "orange" }
       ],
 
